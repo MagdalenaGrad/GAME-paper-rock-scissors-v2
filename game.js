@@ -29,18 +29,19 @@ function aiChoice() {
 }
 
 function checkResult(player, ai) {
-    if (player === ai) {
-        return 'draw';
-    } else if ((player === "paper" && ai === "rock" || player === "rock" && ai === "scissors") || (player === "scissors" && ai === "paper")) {
-        return 'win';
-    } else {
-        return 'loss';
-    }
+    console.log(`player chose ${player}`);
+    console.log(`ai chose ${ai}`);
+
+    if (player == ai) return "draw"
+    else if ((player === "paper" && ai === "rock") || (player === "rock" && ai === "scissors") || (player === "scissors" && ai === "paper")) return "win"
+    else if ((player === "paper" && ai === "scissors") || (player === "rock" && ai === "paper") || (player === "scissors" && ai === "rock")) return "loss"
+    else return "draw"
+
 };
 
 function startGame() {
     if (!game.playerHand) return alert("Select hand!");
-    console.log(aiChoice());
+    // console.log(aiChoice());
     game.aiHand = aiChoice();
     const gameResult = checkResult(game.playerHand, game.aiHand);
     console.log(gameResult);
